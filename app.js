@@ -1,23 +1,15 @@
-const express = require('express');
+const express = require("express");
+ 
+let app = express();
+ 
+app.set("view engine", "ejs");
 
-const app = express();
+app.get("/", (req, res) => {
+  res.render("index", {
+  });
+});
 
-app.use(express.static());
-app.set('view engine', 'ejs');
-
-// app.use(express.json()); // exept jaon data from user
-
-// const templatesPath = path.join(__dirname, "./views/");
-// app.set("views", templatesPath);
-
-// let isTrue = false;
- app.get('/', (req, res) => {
-     res.render("index")
- })
-
-const a = 900000;
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
-})
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Service endpoint = http://localhost:${port}`);
+});
