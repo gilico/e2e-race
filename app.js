@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
      res.render("index")
  })
 
-
+const a = 5; // or zarhi
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
