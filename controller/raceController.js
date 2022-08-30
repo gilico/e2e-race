@@ -7,8 +7,8 @@ const checkGrantCar = (req, res) => {
 }
 
 const sendCarGrant = (req, res) => {
-    let carNo =  req.params.carNo;
-    if(carNo == arduinoNo)
+    let car_no =  req.params.arduinoNo;
+    if(car_no === arduinoNo)
     {
         res.send(arduinoNo);
     }
@@ -18,4 +18,28 @@ const sendCarGrant = (req, res) => {
     }
 }
 
-module.exports = {checkGrantCar, sendCarGrant}
+
+
+let carNo = -1;
+let direction = -1;
+const sendCarDirection = (req, res) => {
+    carNo =  req.params.carNo;
+    direction = req.params.dir;
+    res.send(200);
+}
+
+const getCarDirection = (req, res) => {
+    let carNumber =  req.params.carNo;
+
+    if(carNumber === carNo)
+    {
+        res.send(direction);
+    }
+    else
+    {
+        res.send(-1);
+    }
+}
+
+
+module.exports = {checkGrantCar, sendCarGrant,sendCarDirection,getCarDirection}

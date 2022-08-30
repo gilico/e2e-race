@@ -1,5 +1,6 @@
 const express = require("express");
 const raceRoute = require('./routes/raceRoute');
+const saveDataRoute = require('./routes/saveDataRoute');
 let app = express();
 
 
@@ -13,6 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/race',raceRoute);
+app.use('/api/save-data',saveDataRoute);
 
 const port = 3000;
 app.listen(port, () => {
